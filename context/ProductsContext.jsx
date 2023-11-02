@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { createContext, useLayoutEffect, useState } from "react";
+import { createContext, useLayoutEffect, useMemo, useState } from "react";
 
 export const productsContext = createContext();
 
@@ -8,58 +8,70 @@ const ProductsContext = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [selectedProducts, setSelectedProducts] = useState([]);
 
-  //data for products
-  const data = [
-    {
-      id: 1,
-      img: "./products_images/image-1.webp",
-    },
-    {
-      id: 2,
-      img: "./products_images/image-2.webp",
-    },
-    {
-      id: 3,
-      img: "./products_images/image-3.webp",
-    },
-    {
-      id: 4,
-      img: "./products_images/image-4.webp",
-    },
-    {
-      id: 5,
-      img: "./products_images/image-5.webp",
-    },
-    {
-      id: 6,
-      img: "./products_images/image-6.webp",
-    },
-    {
-      id: 7,
-      img: "./products_images/image-7.webp",
-    },
-    {
-      id: 8,
-      img: "./products_images/image-8.webp",
-    },
-    {
-      id: 9,
-      img: "./products_images/image-9.webp",
-    },
-    {
-      id: 10,
-      img: "./products_images/image-10.jpeg",
-    },
-    {
-      id: 11,
-      img: "./products_images/image-11.jpeg",
-    },
-  ];
+  /**
+   *
+   * Set the initial products when the component render.
+   * using useMemo to optimize render performance.
+   *
+   */
+  const data = useMemo(() => {
+    return [
+      {
+        id: 1,
+        img: "./products_images/image-1.webp",
+      },
+      {
+        id: 2,
+        img: "./products_images/image-2.webp",
+      },
+      {
+        id: 3,
+        img: "./products_images/image-3.webp",
+      },
+      {
+        id: 4,
+        img: "./products_images/image-4.webp",
+      },
+      {
+        id: 5,
+        img: "./products_images/image-5.webp",
+      },
+      {
+        id: 6,
+        img: "./products_images/image-6.webp",
+      },
+      {
+        id: 7,
+        img: "./products_images/image-7.webp",
+      },
+      {
+        id: 8,
+        img: "./products_images/image-8.webp",
+      },
+      {
+        id: 9,
+        img: "./products_images/image-9.webp",
+      },
+      {
+        id: 10,
+        img: "./products_images/image-10.jpeg",
+      },
+      {
+        id: 11,
+        img: "./products_images/image-11.jpeg",
+      },
+    ];
+  }, []);
 
-  // Set the initial products when the component render.
+  /**
+   *
+   * Use useLayoutEffect to set the initial products when the component renders.
+   * ensuring it runs after the initial render to avoid unnecessary re-renders.
+   *
+   */
   useLayoutEffect(() => {
     setProducts([...data]);
-  }, []);
+  }, [data]);
 
   /**
    * handel selected Products ID
