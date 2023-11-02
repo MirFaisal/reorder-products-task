@@ -1,9 +1,14 @@
 import PropTypes from "prop-types";
-import { createContext } from "react";
+import { createContext, useLayoutEffect, useState } from "react";
 
 export const productsContext = createContext();
 
 const ProductsContext = ({ children }) => {
+  // State for products and selected products
+  const [products, setProducts] = useState([]);
+  const [selectedProducts, setSelectedProducts] = useState([]);
+
+  //data for products
   const data = [
     {
       id: 1,
@@ -51,17 +56,63 @@ const ProductsContext = ({ children }) => {
     },
   ];
 
+  // Set the initial products when the component render.
+  useLayoutEffect(() => {
+    setProducts([...data]);
+  }, []);
+
+  /**
+   * handel selected Products ID
+   *
+   * @param {number} productId The ID of the selected product.
+   *
+   * Check if the selected product ID already exists in the selectedProducts array.
+   * If the product is already selected, remove its ID from the selectedProducts array.
+   * If the product is not selected, add its ID to the selectedProducts array.
+   *
+   */
+
+  const handelSelectedProducts = (productId) => {
+    if (selectedProducts.includes(productId)) {
+      setSelectedProducts(selectedProducts.filter((id) => id !== productId));
+    } else setSelectedProducts([...selectedProducts, productId]);
+  };
+
+  /**
+   *
+   * Handle the deletion of selected products.
+   * Filter the products array to exclude the selected products' IDs.
+   *  Clear the selectedProducts array to deselect the products.
+   * Update the products array with the filtered products.
+   *
+   */
+  const handleDeleteSelected = () => {
+    const updatedProducts = products.filter(
+      (product) => !selectedProducts.includes(product.id)
+    );
+
+    setSelectedProducts([]);
+
+    setProducts([...updatedProducts]);
+  };
+
   return (
-    <productsContext.Provider value={{ data }}>
+    <productsContext.Provider
+      value={{
+        products,
+        selectedProducts,
+        handelSelectedProducts,
+        handleDeleteSelected,
+      }}
+    >
       {children}
     </productsContext.Provider>
   );
 };
 
-// Assuming 'children' should be a required DOM
- node list
+// Assuming 'children' should be required DOM node list
 ProductsContext.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
 };
 
 export default ProductsContext;
