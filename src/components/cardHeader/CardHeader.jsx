@@ -8,7 +8,11 @@ const CardHeader = () => {
     <>
       <div className="w-full flex justify-between items-center">
         <p className="flex items-center text-start font-semibold text-lg">
-          <input className="w-6 aspect-square mr-2" type="checkbox" readOnly />
+          <input
+            className="w-6 aspect-square mr-2"
+            type="checkbox"
+            defaultChecked={true}
+          />
           {selectedProducts.length} File Selected
         </p>
 
