@@ -1,58 +1,67 @@
+import PropTypes from "prop-types";
 import { createContext } from "react";
 
-const productsContext = createContext();
+export const productsContext = createContext();
+
 const ProductsContext = ({ children }) => {
-  const products = [
+  const data = [
     {
       id: 1,
-      img: "./product_images/image-1.webp",
+      img: "./products_images/image-1.webp",
     },
     {
       id: 2,
-      img: "./product_images/image-2.webp",
+      img: "./products_images/image-2.webp",
     },
     {
       id: 3,
-      img: "./product_images/image-3.webp",
+      img: "./products_images/image-3.webp",
     },
     {
       id: 4,
-      img: "./product_images/image-4.webp",
+      img: "./products_images/image-4.webp",
     },
     {
       id: 5,
-      img: "./product_images/image-5.webp",
+      img: "./products_images/image-5.webp",
     },
     {
       id: 6,
-      img: "./product_images/image-6.webp",
+      img: "./products_images/image-6.webp",
     },
     {
       id: 7,
-      img: "./product_images/image-7.webp",
+      img: "./products_images/image-7.webp",
     },
     {
       id: 8,
-      img: "./product_images/image-8.webp",
+      img: "./products_images/image-8.webp",
     },
     {
       id: 9,
-      img: "./product_images/image-9.webp",
+      img: "./products_images/image-9.webp",
     },
     {
       id: 10,
-      img: "./product_images/image-10.jpge",
+      img: "./products_images/image-10.jpeg",
     },
     {
       id: 11,
-      img: "./product_images/image-11.jpge",
+      img: "./products_images/image-11.jpeg",
     },
   ];
+
   return (
-    <productsContext.Provider value={products}>
+    <productsContext.Provider value={{ data }}>
       {children}
     </productsContext.Provider>
   );
+};
+
+// Assuming 'children' should be a required DOM
+ node list
+ProductsContext.propTypes = {
+  children: PropTypes.node,
 };
 
 export default ProductsContext;

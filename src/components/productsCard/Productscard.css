@@ -1,0 +1,6 @@
+.products-card > div:first-child {
+  width: 100%;
+  height: 100%;
+  grid-column: 1/3;
+  grid-row: 1/3;
+}
