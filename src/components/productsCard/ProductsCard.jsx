@@ -1,3 +1,4 @@
+import { PhotoIcon } from "@heroicons/react/24/solid";
 import { useContext, useEffect, useState } from "react";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import { productsContext } from "../../../context/ProductsContext";
@@ -61,17 +62,14 @@ const ProductsCard = () => {
                   draggableId={product.id.toString()}
                   index={index}
                 >
-                  {(provided, snapshot) => (
+                  {(provided) => (
                     <div
                       ref={provided.innerRef}
                       {...provided.draggableProps}
                       {...provided.dragHandleProps}
-                      style={{
-                        position: snapshot.isDragging ? "fixe" : "relative",
-                        ...provided.draggableProps.style,
-                      }}
                     >
                       <ProductItem
+                        className="loaded"
                         key={product.id}
                         img={product.img}
                         id={product.id}
@@ -81,7 +79,10 @@ const ProductsCard = () => {
                 </Draggable>
               ))}
               {provided.placeholder}
-              <div className="w-[218px] aspect-square border border-dashed rounded-lg"></div>
+              <div className="w-[218px] aspect-square flex flex-col items-center justify-center border-2 border-dashed rounded-lg">
+                <PhotoIcon className="h-6 w-6 text-blue-500" />
+                <p className="text-gray-700 font-semibold">Add Image</p>
+              </div>
             </div>
           )}
         </Droppable>
