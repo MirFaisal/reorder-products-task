@@ -56,7 +56,7 @@ const ProductsCard = () => {
                 key={product.id}
                 className="uk-card uk-margin-remove uk-padding-remove"
               >
-                <ProductItem img={product.img} id={product.id} />
+                <ProductItem product={product} />
               </div>
             );
           })}
