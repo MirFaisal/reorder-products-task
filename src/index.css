@@ -3,10 +3,8 @@
 @tailwind utilities;
 
 .products-card {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(218px, 1fr));
+  @apply grid-cols-[repeat(auto-fill,minmax(218px,1fr))];
 }
 .products-card > div:first-child {
-  grid-row: 1/3;
-  grid-column: 1/3;
+  @apply row-[1/3] col-[1/3];
 }

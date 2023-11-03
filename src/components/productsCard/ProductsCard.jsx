@@ -16,6 +16,24 @@ const ProductsCard = () => {
     setItems(products);
   }, [products]);
 
+  /**
+   * Implementation of a drag-and-drop sorting feature using the UIKit framework.
+   *
+   * The UIKit framework provides an intuitive and user-friendly way to create
+   * interactive web components. In this implementation, we leverage two distinct
+   * UIKit attributes to achieve the desired functionality:
+   *
+   * 1. 'data-uk-sortable': This attribute is used to make elements sortable by
+   *    enabling drag-and-drop functionality. It simplifies the process of
+   *    reordering items, making it highly user-friendly.
+   *
+   * 2. 'data-uk-grid': This attribute creates a grid layout that can enhance the
+   *    overall presentation of your content. When used in combination with
+   *    'data-uk-sortable,' it allows for precise and visually pleasing sorting.
+   *
+   * By employing these UIKit attributes, we enable the user to seamlessly
+   * rearrange items with minimal effort, enhancing the overall user experience.
+   */
   return (
     <div className="border border-gray-300 rounded-xl">
       <div className="px-7 py-5 heading border-b border-gray-300">
@@ -26,26 +44,28 @@ const ProductsCard = () => {
         )}
       </div>
 
-      <div
-        className="products-card p-7 justify-items-stretch gap-4 overflow-auto uk-margin-remove"
-        data-uk-sortable="handle: .uk-card"
-        data-uk-grid="true"
-      >
-        {items.map((product) => {
-          return (
-            <div
-              key={product.id}
-              className="uk-card uk-margin-remove uk-padding-remove"
-            >
-              <ProductItem img={product.img} id={product.id} />
-            </div>
-          );
-        })}
-        <div className="aspect-square flex flex-col items-center justify-center border-2 border-dashed rounded-lg uk-card uk-margin-remove uk-padding-remove">
-          <PhotoIcon className="h-6 w-6 text-blue-500" />
-          <p className="text-gray-700 font-semibold">Add Image</p>
+      {items && (
+        <div
+          className="products-card p-7 grid grid-cols-[repeat(auto-fill,minmax(218px,1fr))] justify-items-stretch gap-4 overflow-auto uk-margin-remove"
+          data-uk-sortable="handle: .uk-card"
+          data-uk-grid="true"
+        >
+          {items.map((product) => {
+            return (
+              <div
+                key={product.id}
+                className="uk-card uk-margin-remove uk-padding-remove"
+              >
+                <ProductItem img={product.img} id={product.id} />
+              </div>
+            );
+          })}
+          <div className="aspect-square flex flex-col items-center justify-center border-2 border-dashed rounded-lg uk-card uk-margin-remove uk-padding-remove">
+            <PhotoIcon className="h-6 w-6 text-blue-500" />
+            <p className="text-gray-700 font-semibold">Add Image</p>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
