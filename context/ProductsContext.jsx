@@ -94,7 +94,7 @@ const ProductsContext = ({ children }) => {
    *
    * Handle the deletion of selected products.
    * Filter the products array to exclude the selected products' IDs.
-   *  Clear the selectedProducts array to deselect the products.
+   * Clear the selectedProducts array to deselect the products.
    * Update the products array with the filtered products.
    *
    */

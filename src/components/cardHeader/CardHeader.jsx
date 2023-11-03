@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { productsContext } from "../../../context/ProductsContext";
 
 const CardHeader = () => {
+  // useContext hook to access 'selectedProducts' and 'handleDeleteSelected' from 'productsContext'.
   const { selectedProducts, handleDeleteSelected } =
     useContext(productsContext);
   return (
@@ -15,7 +16,6 @@ const CardHeader = () => {
           />
           {selectedProducts.length} File Selected
         </p>
-
         <button
           className="p-0 m-0 text-red-600 text-lg font-semibold duration-100 hover:underline cursor-pointer"
           onClick={() => handleDeleteSelected()}

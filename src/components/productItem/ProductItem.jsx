@@ -3,12 +3,12 @@ import { useContext } from "react";
 import { productsContext } from "../../../context/ProductsContext";
 
 const ProductItem = ({ img, id }) => {
-  // Use the useContext hook to access the selectedProducts state and handelSelectedProducts function
+  // Use the useContext hook to access the 'selectedProducts' state and 'handelSelectedProducts' from the 'productsContext'.
   const { selectedProducts, handelSelectedProducts } =
     useContext(productsContext);
   return (
-    <div className="group relative border border-gray-300 rounded-lg overflow-hidden first:col-span-2 first:row-span-2 cursor-pointer">
-      <img className="w-full" src={img} alt={img} />
+    <div className="group relative bg-white border border-gray-300 rounded-lg overflow-hidden cursor-pointer">
+      <img draggable={false} className="w-full" src={img} alt={img} />
       <div
         className={`${
           selectedProducts.includes(id)
