@@ -60,7 +60,9 @@ const ProductsCard = () => {
               </div>
             );
           })}
-          <div className="aspect-square flex flex-col items-center justify-center border-2 border-dashed rounded-lg uk-card uk-margin-remove uk-padding-remove">
+          <div
+            className="aspect-square flex flex-col items-center justify-center bg-white border-2 border-dashed rounded-lg uk-card uk-margin-remove uk-padding-remove"
+          >
             <PhotoIcon className="h-6 w-6 text-blue-500" />
             <p className="text-gray-700 font-semibold">Add Image</p>
           </div>
