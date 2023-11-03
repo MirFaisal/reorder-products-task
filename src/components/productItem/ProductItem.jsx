@@ -4,10 +4,12 @@ import { productsContext } from "../../../context/ProductsContext";
 
 const ProductItem = ({ img, id }) => {
   // Use the useContext hook to access the 'selectedProducts' state and 'handelSelectedProducts' from the 'productsContext'.
+
   const { selectedProducts, handelSelectedProducts } =
     useContext(productsContext);
+
   return (
-    <div className="group relative bg-white border border-gray-300 rounded-lg overflow-hidden cursor-pointer">
+    <div className="group relative bg-white border border-gray-300 rounded-lg overflow-hidden cursor-pointer first:col-span-2 first:row-span-2">
       <img draggable={false} className="w-full" src={img} alt={img} />
       <div
         className={`${
