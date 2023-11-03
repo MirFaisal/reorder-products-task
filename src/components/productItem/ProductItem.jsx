@@ -19,7 +19,7 @@ const ProductItem = ({ product }) => {
       <div
         className={`${
           selectedProducts.includes(product.id)
-            ? "opacity-100 overlay absolute w-full h-full bg-black/30 top-0 left-0"
+            ? "opacity-100 overlay absolute w-full h-full bg-gray-200/60 top-0 left-0"
             : "opacity-0 overlay absolute w-full h-full bg-black/30 top-0 left-0 duration-200 ease-linear group-hover:opacity-100"
         } ' }`}
       >

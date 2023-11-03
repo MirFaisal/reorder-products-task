@@ -35,10 +35,10 @@ const ProductsCard = () => {
    * rearrange items with minimal effort, enhancing the overall user experience.
    */
   return (
-    <div className="border border-gray-300 rounded-xl">
+    <div className="border bg-white border-gray-300 rounded-xl">
       <div className="px-7 py-5 heading border-b border-gray-300">
         {selectedProducts.length == 0 ? (
-          <p className="text-start font-semibold text-lg">Gallery</p>
+          <p className="text-start font-semibold text-3xl">Gallery</p>
         ) : (
           <CardHeader />
         )}
