@@ -8,3 +8,19 @@ body {
 .products-card > div:first-child {
   @apply row-[1/3] col-[1/3];
 }
+.upload {
+  user-zoom: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.droppable {
+    width: 100px;
+    height: 100px;
+    background-color: lightgray;
+    border: 2px dashed transparent; /* Initial transparent border */
+    margin: 10px;
+}

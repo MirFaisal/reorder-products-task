@@ -1,5 +1,5 @@
 import { PhotoIcon } from "@heroicons/react/24/solid";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import "uikit/dist/js/uikit.min.js";
 import { productsContext } from "../../../context/ProductsContext";
 import CardHeader from "../cardHeader/CardHeader";
@@ -11,10 +11,20 @@ const ProductsCard = () => {
   // Initialize 'items' state to hold the list of products.
   const [items, setItems] = useState([]);
 
+  // Create a ref to hold a reference to a DOM element (initially set to null).
+  const uploadElement = useRef("null");
+
+  // Remove the "uk-card" class from the referenced DOM element.
+  useEffect(() => {
+    uploadElement.current.classList.remove("uk-card");
+  }, []);
+
   // Use useEffect to update 'items' when 'products' change.
   useEffect(() => {
     setItems(products);
   }, [products]);
+
+  //
 
   /**
    * Implementation of a drag-and-drop sorting feature using the UIKit framework.
@@ -60,7 +70,10 @@ const ProductsCard = () => {
               </div>
             );
           })}
-          <div className="aspect-square flex flex-col items-center justify-center bg-white border-2 border-dashed rounded-lg uk-card uk-margin-remove uk-padding-remove">
+          <div
+            ref={uploadElement}
+            className="upload aspect-square flex flex-col items-center justify-center bg-white border-2 border-dashed rounded-lg uk-card uk-margin-remove uk-padding-remove"
+          >
             <PhotoIcon className="h-6 w-6 text-blue-500" />
             <p className="text-gray-700 font-semibold">Add Image</p>
           </div>
