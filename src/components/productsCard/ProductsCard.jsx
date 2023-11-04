@@ -46,7 +46,7 @@ const ProductsCard = () => {
 
       {items && (
         <div
-          className="products-card p-7 grid grid-cols-[repeat(auto-fill,minmax(218px,1fr))] justify-items-stretch gap-4 overflow-auto uk-margin-remove"
+          className="products-card p-7 grid grid-cols-2 justify-items-stretch md:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-4 uk-margin-remove"
           data-uk-sortable="handle: .uk-card"
           data-uk-grid="true"
         >
@@ -60,9 +60,7 @@ const ProductsCard = () => {
               </div>
             );
           })}
-          <div
-            className="aspect-square flex flex-col items-center justify-center bg-white border-2 border-dashed rounded-lg uk-card uk-margin-remove uk-padding-remove"
-          >
+          <div className="aspect-square flex flex-col items-center justify-center bg-white border-2 border-dashed rounded-lg uk-card uk-margin-remove uk-padding-remove">
             <PhotoIcon className="h-6 w-6 text-blue-500" />
             <p className="text-gray-700 font-semibold">Add Image</p>
           </div>
