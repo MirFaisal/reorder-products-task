@@ -18,9 +18,9 @@ body {
 }
 
 .droppable {
-    width: 100px;
-    height: 100px;
-    background-color: lightgray;
-    border: 2px dashed transparent; /* Initial transparent border */
-    margin: 10px;
+  width: 100px;
+  height: 100px;
+  background-color: lightgray;
+  border: 2px dashed transparent; /* Initial transparent border */
+  margin: 10px;
 }

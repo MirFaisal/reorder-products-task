@@ -1,14 +1,13 @@
-import './App.css'
-import ProductsCard from './components/productsCard/ProductsCard'
+import ProductsCard from "./components/productsCard/ProductsCard";
+import "./App.css";
 
 function App() {
-
-
+  // Render the ProductsCard component
   return (
     <>
-      <ProductsCard/>
+      <ProductsCard />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
